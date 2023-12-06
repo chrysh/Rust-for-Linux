@@ -14,6 +14,7 @@
 #include <linux/fs.h>
 #include <linux/jiffies.h>
 #include <linux/mdio.h>
+#include <linux/pid_namespace.h>
 #include <linux/phy.h>
 #include <linux/security.h>
 #include <linux/slab.h>
