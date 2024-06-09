@@ -1,10 +1,23 @@
 // SPDX-License-Identifier: GPL-2.0
 
 //! Extensions to [`Vec`] for fallible allocations.
-
+use kernel::prelude::*;
 use super::{AllocError, Flags};
 use alloc::vec::Vec;
 use core::ptr;
+
+#[macro_export]
+macro_rules! vec {
+    ( $( $x:expr ),* ) => {
+        {
+            let mut temp_vec = Vec::new();
+            $(
+                let _ = temp_vec.push($x, GFP_KERNEL);
+            )*
+            temp_vec
+        }
+    };
+}
 
 /// Extensions to [`Vec`].
 pub trait VecExt<T>: Sized {
