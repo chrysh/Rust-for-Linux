@@ -7,6 +7,7 @@
 mod allocator;
 pub mod box_ext;
 pub mod vec_ext;
+pub mod myvec;
 
 /// Indicates an allocation error.
 #[derive(Copy, Clone, PartialEq, Eq, Debug)]
